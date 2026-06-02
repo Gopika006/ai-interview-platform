@@ -1,51 +1,45 @@
 import { useState } from "react";
 
-export default function InterviewForm() {
+function InterviewForm() {
   const [name, setName] = useState("");
-  const [role, setRole] = useState("");
 
-  const handleSubmit = () => {
-    if (name === "" || role === "") {
-      alert("Please fill all fields");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!name) {
+      alert("Enter interview role");
       return;
     }
 
-    alert(`Welcome ${name} for ${role} interview`);
+    alert(`Interview Created for ${name}`);
+    setName("");
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-lg mt-10 mb-20">
-      
-      <h2 className="text-3xl font-bold text-center mb-6">
-        Start Mock Interview
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white shadow p-6 rounded"
+    >
+      <h2 className="text-2xl font-bold mb-4">
+        Create Interview
       </h2>
 
       <input
         type="text"
-        placeholder="Enter your name"
-        className="w-full border border-gray-300 p-3 rounded-lg mb-4 outline-none"
+        placeholder="Frontend Developer"
         value={name}
         onChange={(e) => setName(e.target.value)}
+        className="border w-full p-3 rounded mb-4"
       />
 
-      <select
-        className="w-full border border-gray-300 p-3 rounded-lg mb-4 outline-none"
-        value={role}
-        onChange={(e) => setRole(e.target.value)}
-      >
-        <option value="">Select Interview Type</option>
-        <option value="React Developer">React Developer</option>
-        <option value="Frontend Developer">Frontend Developer</option>
-        <option value="HR Interview">HR Interview</option>
-      </select>
-
       <button
-        onClick={handleSubmit}
-        className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition"
+        type="submit"
+        className="bg-blue-600 text-white px-5 py-2 rounded"
       >
-        Start Interview
+        Create
       </button>
-
-    </div>
+    </form>
   );
 }
+
+export default InterviewForm;

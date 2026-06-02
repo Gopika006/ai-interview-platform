@@ -1,19 +1,21 @@
 {
   "name": "ai-interview-platform",
-"homepage": "https://gopika006.github.io/ai-interview-platform",  "private": true,
+  "homepage": "https://gopika006.github.io/ai-interview-platform",
+  "private": true,
   "version": "0.0.0",
   "type": "module",
-"scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "preview": "vite preview",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-},
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
+    "react-router-dom": "^7.16.0",
     "tailwindcss": "^4.3.0"
   },
   "devDependencies": {

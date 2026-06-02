@@ -1,11 +1,15 @@
-export default function Navbar() {
+function Navbar() {
   return (
-    <div className="flex justify-between p-4 shadow">
-      <h1 className="text-2xl font-bold">AI Interview</h1>
+    <nav className="bg-gray-900 text-white p-4 flex justify-between">
+      <h1 className="text-2xl font-bold">
+        AI Interview Platform
+      </h1>
 
-      <button className="bg-black text-white px-4 py-2 rounded">
-        Start
+      <button className="bg-blue-600 px-4 py-2 rounded">
+        Login
       </button>
-    </div>
+    </nav>
   );
 }
+
+export default Navbar;

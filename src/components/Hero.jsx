@@ -1,17 +1,19 @@
-export default function Hero() {
+function Hero() {
   return (
-    <div className="text-center mt-20">
-      <h1 className="text-5xl font-bold">
-        Practice AI Interviews
+    <section className="text-center py-20 bg-gray-100">
+      <h1 className="text-5xl font-bold mb-4">
+        Ace Your Interview With AI
       </h1>
 
-      <p className="mt-4 text-gray-500">
-        Improve your interview confidence
+      <p className="text-gray-600 mb-6">
+        Practice technical and HR interviews with AI-powered questions.
       </p>
 
-      <button className="mt-6 bg-blue-500 text-white px-6 py-3 rounded">
-        Get Started
+      <button className="bg-green-600 text-white px-6 py-3 rounded">
+        Start Interview
       </button>
-    </div>
+    </section>
   );
 }
+
+export default Hero;
