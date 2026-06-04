@@ -1,40 +1,46 @@
+import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import InterviewForm from "./components/InterviewForm";
-import InterviewCard from "./components/InterviewCard";
 
 function App() {
   return (
-    <>
-      <Navbar />
+    <div className="flex">
+      <Sidebar />
 
-      <Hero />
+      <div className="flex-1">
+        <Navbar />
+        <Hero />
 
-      <div className="max-w-6xl mx-auto p-6">
-        <InterviewForm />
+        <div className="p-6">
+          <h2 className="text-3xl font-bold mb-4">
+            AI Interview Dashboard
+          </h2>
 
-        <h2 className="text-3xl font-bold mt-10 mb-6">
-          Available Interviews
-        </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white shadow p-6 rounded">
+              <h3 className="text-xl font-bold">
+                Total Interviews
+              </h3>
+              <p className="text-3xl mt-3">12</p>
+            </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          <InterviewCard
-            title="React Interview"
-            level="Beginner"
-          />
+            <div className="bg-white shadow p-6 rounded">
+              <h3 className="text-xl font-bold">
+                Completed
+              </h3>
+              <p className="text-3xl mt-3">8</p>
+            </div>
 
-          <InterviewCard
-            title="JavaScript Interview"
-            level="Intermediate"
-          />
-
-          <InterviewCard
-            title="Frontend Developer"
-            level="Advanced"
-          />
+            <div className="bg-white shadow p-6 rounded">
+              <h3 className="text-xl font-bold">
+                Pending
+              </h3>
+              <p className="text-3xl mt-3">4</p>
+            </div>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
