@@ -1,40 +1,25 @@
-import { useState } from "react";
-
-function Sidebar() {
-  const [open, setOpen] = useState(true);
-
+function Sidebar({ setPage }) {
   return (
-    <div className="flex">
-      <div
-        className={`bg-gray-900 text-white min-h-screen transition-all duration-300 ${
-          open ? "w-64" : "w-20"
-        }`}
-      >
-        <button
-          onClick={() => setOpen(!open)}
-          className="p-4 text-xl"
+    <div className="w-64 bg-gray-900 text-white p-5">
+      <h2 className="text-2xl font-bold mb-8">
+        AI Interview
+      </h2>
+
+      <ul className="space-y-4">
+        <li
+          className="cursor-pointer hover:text-blue-400"
+          onClick={() => setPage("dashboard")}
         >
-          ☰
-        </button>
+          Dashboard
+        </li>
 
-        <ul className="mt-6 space-y-4 px-4">
-          <li className="hover:text-blue-400 cursor-pointer">
-            {open ? "Dashboard" : "🏠"}
-          </li>
-
-          <li className="hover:text-blue-400 cursor-pointer">
-            {open ? "Interviews" : "🎤"}
-          </li>
-
-          <li className="hover:text-blue-400 cursor-pointer">
-            {open ? "Reports" : "📊"}
-          </li>
-
-          <li className="hover:text-blue-400 cursor-pointer">
-            {open ? "Settings" : "⚙️"}
-          </li>
-        </ul>
-      </div>
+        <li
+          className="cursor-pointer hover:text-blue-400"
+          onClick={() => setPage("interviews")}
+        >
+          Interviews
+        </li>
+      </ul>
     </div>
   );
 }

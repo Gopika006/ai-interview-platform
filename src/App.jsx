@@ -1,44 +1,24 @@
+import { useState } from "react";
+import Login from "./components/Login";
 import Sidebar from "./components/Sidebar";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
+import Dashboard from "./components/Dashboard";
+import Interviews from "./components/Interviews";
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [page, setPage] = useState("dashboard");
+
+  if (!loggedIn) {
+    return <Login onLogin={() => setLoggedIn(true)} />;
+  }
+
   return (
-    <div className="flex">
-      <Sidebar />
+    <div className="flex min-h-screen">
+      <Sidebar setPage={setPage} />
 
-      <div className="flex-1">
-        <Navbar />
-        <Hero />
-
-        <div className="p-6">
-          <h2 className="text-3xl font-bold mb-4">
-            AI Interview Dashboard
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white shadow p-6 rounded">
-              <h3 className="text-xl font-bold">
-                Total Interviews
-              </h3>
-              <p className="text-3xl mt-3">12</p>
-            </div>
-
-            <div className="bg-white shadow p-6 rounded">
-              <h3 className="text-xl font-bold">
-                Completed
-              </h3>
-              <p className="text-3xl mt-3">8</p>
-            </div>
-
-            <div className="bg-white shadow p-6 rounded">
-              <h3 className="text-xl font-bold">
-                Pending
-              </h3>
-              <p className="text-3xl mt-3">4</p>
-            </div>
-          </div>
-        </div>
+      <div className="flex-1 bg-gray-100">
+        {page === "dashboard" && <Dashboard />}
+        {page === "interviews" && <Interviews />}
       </div>
     </div>
   );
